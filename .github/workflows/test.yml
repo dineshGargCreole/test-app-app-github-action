@@ -1,37 +1,10 @@
-name: Sequential Jobs
+name: Output Information
 
-on:
-  push:
-    branches:
-      - sequential_jobs
+on: workflow_dispatch
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Getting code
-        uses: actions/checkout@v4
-      - name: Install NodeJs
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Run test
-        run: npm test
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Getting code
-        uses: actions/checkout@v4
-      - name: Install NodeJs
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Build project
-        run: npm run build
-      - name: Deploy project
-        run: echo "Deploying..."
+      - name: Output Github Context
+        run: echo "${{ toJSON(github) }}"
