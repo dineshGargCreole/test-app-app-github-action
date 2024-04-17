@@ -1,6 +1,9 @@
 name: Output Information
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    branches:
+      - context_expression
 
 jobs:
   test:
