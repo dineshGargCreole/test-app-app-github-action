@@ -5,7 +5,7 @@ on:
     branches:
       - sequential_jobs
 
-Jobs:
+jobs:
   test:
     runs-on: ubuntu-latest
     steps:
